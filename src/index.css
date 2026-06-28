@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply font-sans antialiased text-slate-800 dark:text-slate-100;
+  margin: 0;
+}
+
+/* Animated gradient backdrop -------------------------------------------------*/
+.app-bg {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(129, 140, 248, 0.25), transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(99, 102, 241, 0.18), transparent 55%),
+    #f6f7fb;
+}
+.dark .app-bg {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99, 102, 241, 0.22), transparent 60%),
+    radial-gradient(1000px 500px at 110% 10%, rgba(56, 48, 163, 0.25), transparent 55%),
+    #0b1020;
+}
+
+/* Glassmorphism card --------------------------------------------------------*/
+.glass {
+  @apply rounded-2xl border border-white/40 bg-white/70 shadow-glass backdrop-blur-xl;
+}
+.dark .glass {
+  @apply border-white/10 bg-white/[0.06];
+}
+
+/* Pretty, thin scrollbars ---------------------------------------------------*/
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.4) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.4);
+  border-radius: 9999px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Rendered markdown output --------------------------------------------------*/
+.prose-result {
+  @apply text-[15px] leading-relaxed text-slate-700 dark:text-slate-200;
+}
+.prose-result h1,
+.prose-result h2,
+.prose-result h3 {
+  @apply font-semibold text-slate-900 dark:text-white mt-5 mb-2;
+}
+.prose-result h1 { @apply text-xl; }
+.prose-result h2 { @apply text-lg; }
+.prose-result h3 { @apply text-base; }
+.prose-result p { @apply my-2.5; }
+.prose-result ul { @apply my-2.5 list-disc pl-5 space-y-1.5; }
+.prose-result ol { @apply my-2.5 list-decimal pl-5 space-y-1.5; }
+.prose-result li { @apply marker:text-brand-500; }
+.prose-result strong { @apply font-semibold text-slate-900 dark:text-white; }
+.prose-result a { @apply text-brand-600 dark:text-brand-300 underline underline-offset-2; }
+.prose-result code {
+  @apply rounded bg-slate-200/70 dark:bg-white/10 px-1.5 py-0.5 text-[13px];
+}
+.prose-result blockquote {
+  @apply border-l-4 border-brand-400 pl-4 italic text-slate-600 dark:text-slate-300;
+}
+.prose-result hr { @apply my-4 border-slate-200 dark:border-white/10; }
+.prose-result table { @apply my-3 w-full text-sm border-collapse; }
+.prose-result th,
+.prose-result td { @apply border border-slate-200 dark:border-white/10 px-3 py-1.5 text-left; }
+
+/* Blinking caret used during streaming --------------------------------------*/
+.typing-caret::after {
+  content: '▌';
+  @apply text-brand-500;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

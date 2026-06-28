@@ -1,0 +1,37 @@
+{
+  "name": "smartsummarizer-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI-Powered YouTube Transcript & Document Summarizer",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/index.js",
+    "server:dev": "node --watch server/index.js",
+    "dev:all": "concurrently -n \"web,api\" -c \"magenta,cyan\" \"npm run dev\" \"npm run server:dev\"",
+    "start": "npm run dev:all",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "framer-motion": "^11.3.8",
+    "jspdf": "^2.5.1",
+    "lucide-react": "^0.417.0",
+    "pdfjs-dist": "^4.5.136",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-markdown": "^9.0.1",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.3.5"
+  }
+}
